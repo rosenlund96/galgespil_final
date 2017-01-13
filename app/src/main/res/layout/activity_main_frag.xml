@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Gæt ordet!"
+        android:id="@+id/gætOrd"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/besked"
+        android:text="Syv forsøg tilbage"
+        android:layout_alignTop="@+id/gætOrd"
+        android:layout_alignStart="@+id/synligtOrd" />
+
+    <ImageView
+        android:layout_width="95dp"
+        android:layout_height="110dp"
+        android:id="@+id/galgeImage"
+        android:src="@mipmap/galge"
+        android:layout_below="@+id/besked"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="35dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OK"
+        android:id="@+id/button"
+        android:layout_above="@+id/brugteBogstaver"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:layout_above="@+id/brugteBogstaver"
+        android:layout_toStartOf="@+id/button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/synligtOrd"
+        android:layout_alignTop="@+id/galgeImage"
+        android:layout_toStartOf="@+id/button" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Medium Text"
+        android:id="@+id/brugteBogstaver"
+        android:layout_below="@+id/galgeImage"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="vis alle ord"
+        android:id="@+id/showWords"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textScore"
+        android:layout_below="@+id/brugteBogstaver"
+        android:layout_alignRight="@+id/besked"
+        android:layout_alignEnd="@+id/besked" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        android:id="@+id/textView"
+        android:layout_alignTop="@+id/brugteBogstaver"
+        android:layout_toLeftOf="@+id/textScore"
+        android:layout_toStartOf="@+id/textScore" />
+
+</RelativeLayout>
