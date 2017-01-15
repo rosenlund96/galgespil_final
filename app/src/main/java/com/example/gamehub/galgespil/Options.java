@@ -8,7 +8,7 @@ import android.widget.CheckBox;
 public class Options extends FragmentActivity implements View.OnClickListener{
 
     CheckBox checkBoxOriginal, checkBoxLayoutWrite, checkBoxLayoutKeyboard;
-    static boolean booleanOriginal = true, booleanPokemon, booleanLayoutWrite, booleanLayoutKeyboard = true;
+    static boolean booleanOriginal = true, booleanLayoutWrite, booleanLayoutKeyboard = true;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

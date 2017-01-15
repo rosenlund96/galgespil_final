@@ -33,5 +33,5 @@ public class Lists {
 
     }
 
-    public ArrayList getOprindeligeOrdList(){ Options.booleanPokemon = false; Options.booleanOriginal = true; return oprindeligeOrd; }
+    public ArrayList getOprindeligeOrdList(){ Options.booleanOriginal = true; return oprindeligeOrd; }
 }
