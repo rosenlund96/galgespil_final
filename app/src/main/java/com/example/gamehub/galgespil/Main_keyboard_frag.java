@@ -1,13 +1,14 @@
 package com.example.gamehub.galgespil;
 
 import android.app.AlertDialog;
-import android.app.Fragment;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
- * Created by Daniel Bordig on 17-01-2016.
+ * Created by Mathias Larsen on 14-01-2017.
  */
 public class Main_keyboard_frag extends Fragment implements View.OnClickListener {
 
@@ -28,10 +29,11 @@ public class Main_keyboard_frag extends Fragment implements View.OnClickListener
            letterQ,letterR,letterS,letterT,letterU,letterV,letterW,letterX,
            letterY,letterZ,letterÆ,letterØ,letterÅ;
     ImageView image;
+    Bundle bundle;
+    String temp;
 
-    private SensorManager sensorManager;
-    private Sensor accelerometer;
-    private ShakeDetector shakeDetector;
+
+
 
     private int[] fejlBilleder = new int[]{
             R.mipmap.galge,
@@ -55,55 +57,31 @@ public class Main_keyboard_frag extends Fragment implements View.OnClickListener
     };
 
     public Main_keyboard_frag() {
-        StartMenu.galge.nulstil();
+
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         galgeMain = StartMenu.galge;
+        bundle = getArguments();
+        System.out.println(bundle);
+        temp = bundle.getString("ordet");
+        StartMenu.galge.nulstil(temp);
 
-        sensorManager = (SensorManager) getActivity().getSystemService(Context.SENSOR_SERVICE);
-        accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        shakeDetector = new ShakeDetector();
-        shakeDetector.setOnShakeListener(new ShakeDetector.OnShakeListener() {
 
-            @Override
-            public void onShake(int count) {
-                AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-                if(count==1) {
-                    dialog.setTitle("Nyt ord");
-                    dialog.setMessage("Vil du have et nyt ord?");
-                    dialog.setPositiveButton("OK", new AlertDialog.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            galgeMain.nulstil();
-                            getFragmentManager().beginTransaction().replace(R.id.fragment_main, new Main_keyboard_frag()).commit();
-                        }
-                    });
-                    dialog.setNegativeButton("Annuller", new AlertDialog.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    });
-                    dialog.show();
-                }
-            }
-        });
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        // register the Session Manager Listener onResume
-        sensorManager.registerListener(shakeDetector, accelerometer, SensorManager.SENSOR_DELAY_UI);
+
     }
 
     @Override
     public void onPause() {
-        // unregister the Sensor Manager onPause
-        sensorManager.unregisterListener(shakeDetector);
+
         super.onPause();
     }
 
@@ -144,6 +122,8 @@ public class Main_keyboard_frag extends Fragment implements View.OnClickListener
         letterY.setOnClickListener(this); letterZ.setOnClickListener(this); letterÆ.setOnClickListener(this);
         letterØ.setOnClickListener(this); letterÅ.setOnClickListener(this);
 
+
+
         syndligtOrd.setText(galgeMain.getSynligtOrd());
         gætord.setText("Gæt ordet \nmed " + syndligtOrd.length() + " bogstaver.");
         image.setImageResource(fejlBilleder[galgeMain.getAntalForkerteBogstaver()]);
@@ -154,9 +134,9 @@ public class Main_keyboard_frag extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View v) {
         String temp = v.toString();
-        String choesenLetter = temp.substring(temp.length()-2, temp.length()-1).toLowerCase();
+        String chosenLetter = temp.substring(temp.length()-2, temp.length()-1).toLowerCase();
         v.setClickable(false);
-        galgeMain.gætBogstav(choesenLetter);
+        galgeMain.gætBogstav(chosenLetter);
         if(galgeMain.erSidsteBogstavKorrekt()) v.setBackgroundColor(Color.GREEN);
         else v.setBackgroundColor(Color.RED);
 

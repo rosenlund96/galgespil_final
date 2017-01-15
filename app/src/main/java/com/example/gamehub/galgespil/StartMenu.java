@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 /**
- * Created by Daniel Bordig on 18-01-2016.
+ * Created by Mathias Larsen on 14-01-2017.
  */
 public class StartMenu extends FragmentActivity implements View.OnClickListener {
 
@@ -32,17 +32,14 @@ public class StartMenu extends FragmentActivity implements View.OnClickListener 
         secondHeader = (TextView) findViewById(R.id.secondHeader);
         startSpilBut = (Button) findViewById(R.id.startSpilBut);
         indstillingerBut = (Button) findViewById(R.id.indstillingerBut);
-        hjælpBut = (Button) findViewById(R.id.hjælpBut);
 
         startSpilBut.setOnClickListener(this);
         indstillingerBut.setOnClickListener(this);
-        hjælpBut.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         if(v==startSpilBut) startActivity(new Intent(getApplicationContext(), MainActivity.class));
         if(v==indstillingerBut) startActivity((new Intent(getApplicationContext(), Options.class)));
-        if(v==hjælpBut) Toast.makeText(this,"endnu ikke implementeret", Toast.LENGTH_SHORT).show();
     }
 }

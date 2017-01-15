@@ -2,7 +2,8 @@ package com.example.gamehub.galgespil;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +21,7 @@ public class Main_frag extends Fragment implements View.OnClickListener {
     EditText bogstav, score;
     Button ok, showWords;
     ImageView image;
-    Fragment fragmentEnd = new GameEnd_frag();
+
 
     private int[] fejlBilleder = new int[]{
             R.mipmap.forkert1,
@@ -116,7 +117,7 @@ public class Main_frag extends Fragment implements View.OnClickListener {
            startActivity(new Intent(getActivity(), AllWords_frag.class));
         }
         if (galgeMain.erSpilletSlut()) {
-           getFragmentManager().beginTransaction().replace(R.id.fragment_main, fragmentEnd).commit();
+           getFragmentManager().beginTransaction().replace(R.id.fragment_main, new GameEnd_frag()).commit();
             finalScore = points;
             points = 0;
         }

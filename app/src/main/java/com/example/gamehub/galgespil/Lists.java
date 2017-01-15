@@ -3,13 +3,12 @@ package com.example.gamehub.galgespil;
 import java.util.ArrayList;
 
 /**
- * Created by Daniel Bordig on 16-02-2016.
+ * Created by Mathias Larsen on 14-01-2017.
  */
 public class Lists {
 
     private ArrayList<String> oprindeligeOrd = new ArrayList<>();
 
-    private ArrayList<Integer> pokemonPictures = new ArrayList<>();
 
 
     public Lists() {
@@ -35,5 +34,4 @@ public class Lists {
     }
 
     public ArrayList getOprindeligeOrdList(){ Options.booleanPokemon = false; Options.booleanOriginal = true; return oprindeligeOrd; }
-    public ArrayList getPokemonPictures(){ return pokemonPictures; };
 }

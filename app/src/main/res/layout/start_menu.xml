@@ -42,14 +42,4 @@
             android:layout_gravity="center"
             android:layout_marginBottom="10dp" />
 
-        <Button
-            android:layout_width="350dp"
-            android:layout_height="70dp"
-            android:id="@+id/hjælpBut"
-            android:text="Hjælp"
-            android:textSize="30dp"
-            android:textAllCaps="false"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp" />
-
 </LinearLayout>

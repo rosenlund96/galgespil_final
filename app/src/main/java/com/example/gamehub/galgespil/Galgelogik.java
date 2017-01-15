@@ -53,13 +53,12 @@ public class Galgelogik {
 
 
 
-  public void nulstil() {
+  public void nulstil(String ord) {
     brugteBogstaver.clear();
     antalForkerteBogstaver = 0;
     spilletErVundet = false;
     spilletErTabt = false;
-    index = new Random().nextInt(muligeOrd.size());
-    ordet = muligeOrd.get(index);
+    ordet = ord;
     opdaterSynligtOrd();
   }
 

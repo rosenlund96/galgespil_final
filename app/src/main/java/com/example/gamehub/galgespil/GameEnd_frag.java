@@ -2,7 +2,8 @@ package com.example.gamehub.galgespil;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
+
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -85,7 +86,7 @@ public class GameEnd_frag extends Fragment implements View.OnClickListener {
                 }
             }.execute();
         }
-        if(v==newGame)getFragmentManager().beginTransaction().replace(R.id.fragment_main, new Main_keyboard_frag()).commit();
+        if(v==newGame)getFragmentManager().beginTransaction().replace(R.id.fragment_main, new AllWords_frag()).commit();
     }
 
 }

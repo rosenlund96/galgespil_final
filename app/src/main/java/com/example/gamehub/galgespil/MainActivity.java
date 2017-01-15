@@ -12,7 +12,8 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        getFragmentManager().beginTransaction().add(R.id.fragment_main, new Main_keyboard_frag()).commit();
+
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_main, new AllWords_frag()).commit();
     }
 
 }
